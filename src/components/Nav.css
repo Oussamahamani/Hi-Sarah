@@ -1,0 +1,15 @@
+#nav-box{
+    display: flex;
+    justify-content: center;
+border: 1px solid black;
+}
+#nav-home{
+margin-right: auto;       
+ color: green;
+}
+
+#nav-box h1:nth-child(1n){
+border: 2px solid green;
+border-radius: 15px;
+padding: 5px;
+}
