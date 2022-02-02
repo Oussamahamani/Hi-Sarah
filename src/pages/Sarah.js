@@ -17,11 +17,9 @@ const Addmessages =(message) =>{
 }
 const fetchSara = async () => {
     try {
-        const response = await axios.get(`http://api.brainshop.ai/get?bid=163410&key=hWlvyscvNLHzjlmQ&uid=[1]&msg=${Message}`)
+        const response = await axios.get(`https://api.brainshop.ai/get?bid=163410&key=hWlvyscvNLHzjlmQ&uid=[1]&msg=${Message}`)
                 console.log(response.data.cnt)
                 setSara(response.data.cnt)
-                Addmessages(Sara)
-                console.log(Messages)      
             } catch (error) {
                 console.error(error)
                 console.log('not working')
@@ -29,8 +27,9 @@ const fetchSara = async () => {
 }
 
 useEffect(() => {
-   
-}, [Messages]);
+    Addmessages(Sara)
+
+}, [Sara]);
 const handleSubmit =(e) =>{
 e.preventDefault()
 Addmessages(Message)
