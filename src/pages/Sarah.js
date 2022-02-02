@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react'; 
+import { useState, useEffect } from 'react'; 
 import axios from 'axios'
 
 
@@ -17,16 +17,20 @@ const Addmessages =(message) =>{
 }
 const fetchSara = async () => {
     try {
-        const response = await axios.get(`http://api.brainshop.ai/get?bid=163044&key=tL53y0qRo8Ztpqfv&uid=[1]&msg=${Message}`)
-                console.log(response)
+        const response = await axios.get(`http://api.brainshop.ai/get?bid=163410&key=hWlvyscvNLHzjlmQ&uid=[1]&msg=${Message}`)
+                console.log(response.data.cnt)
                 setSara(response.data.cnt)
-                Addmessages(Sara)      
+                Addmessages(Sara)
+                console.log(Messages)      
             } catch (error) {
                 console.error(error)
                 console.log('not working')
     } 
 }
 
+useEffect(() => {
+   
+}, [Messages]);
 const handleSubmit =(e) =>{
 e.preventDefault()
 Addmessages(Message)
