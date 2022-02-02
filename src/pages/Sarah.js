@@ -17,7 +17,8 @@ const Addmessages =(message) =>{
 }
 const fetchSara = async () => {
     try {
-        const response = await axios.get(`https://api.brainshop.ai/get?bid=163410&key=hWlvyscvNLHzjlmQ&uid=[1]&msg=${Message}`)
+        const response = await axios.get(`https://api.brainshop.ai/get?bid=163410&key=hWlvyscvNLHzjlmQ&uid=[1]&msg=${Message}`,{headers:{
+            'Access-Control-Allow-Origin' : '*', }})
                 console.log(response.data.cnt)
                 setSara(response.data.cnt)
             } catch (error) {
