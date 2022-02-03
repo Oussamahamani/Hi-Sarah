@@ -116,20 +116,20 @@ setMessage('')
 
 }
 const [chance, setchance] = useState(false);
-useEffect(() => {
-    setchance(true)
-    const localData = JSON.parse(localStorage.getItem('Messages'));
-    setMessages(localData)
-    console.log(localData)
-    // console.log(Messages)
-}, []);
+// useEffect(() => {
+//     setchance(true)
+//     const localData = JSON.parse(localStorage.getItem('Messages'));
+//     setMessages(localData)
+//     console.log(localData)
+//     // console.log(Messages)
+// }, []);
 
-useEffect(() => {
- if (chance){
-    localStorage.setItem('Messages', JSON.stringify(Messages))
- }
-console.log('messge')
-}, [Messages]);
+// useEffect(() => {
+//  if (chance){
+//     localStorage.setItem('Messages', JSON.stringify(Messages))
+//  }
+// console.log('messge')
+// }, [Messages]);
     return (
         <div id="chat">
         <div id="chat-box">
