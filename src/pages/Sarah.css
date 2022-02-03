@@ -1,0 +1,38 @@
+#chat{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#chat-box{
+    height: 600px;
+    width: 1000px;
+    border: solid black 1px;
+    
+}
+#chat-container{
+    border: solid black 1px;
+    height: 90%;
+    overflow-y:scroll
+
+}
+
+#container-flex{
+    display: flex;
+    flex-direction: column;
+}
+
+.messages{
+    border: black solid 1px;
+
+}
+
+.human{
+    background-color: green;
+    align-self: flex-end;
+    margin-right: 10px;
+}
+.robot{
+    background-color: red;
+    align-self: start;
+    margin-left: 10px
+}
