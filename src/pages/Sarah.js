@@ -4,11 +4,16 @@ import axios from 'axios'
 import { useTranslator} from '../hooks/useTranslator';
 import { useDetector} from '../hooks/useDetector';
 import Chat from './chat';
+import { useSpeechSynthesis } from "react-speech-kit";
 
 import "./Sarah.css"
 
 const Sarah = () => {
-
+    const { speak,cancel } = useSpeechSynthesis();
+    const speaking = (item) =>{
+        cancel()
+       speak({ text: item })
+    }
     const [Messages, setMessages] = useState([]);
     const [Message, setMessage] = useState('');
     const [Send, setSend] = useState('');
@@ -84,7 +89,7 @@ useEffect(() => {
 
         setLast(Sara)
         setLanguageto(Language)
-        console.log('no')
+        console.log('sending request to sara')
     }
 
 }, [Sara]);
@@ -100,17 +105,7 @@ if(LastTranslation){
     clean()
 }
 }, [LastTranslation]);
-// useEffect(() => {
-// console.log(Translation)
-// console.log(Language)
 
-// fetchSara()
-
-// }, [Translation]);
-
-// useEffect(() => {
-// console.log(Message)
-// }, [Message]);
 
 const handleSubmit =(e) =>{
     setWriting(true)
@@ -120,31 +115,46 @@ Addmessages(Message,true)
 setMessage('')
 
 }
+const [chance, setchance] = useState(false);
+useEffect(() => {
+    setchance(true)
+    const localData = JSON.parse(localStorage.getItem('Messages'));
+    setMessages(localData)
+    console.log(localData)
+    // console.log(Messages)
+}, []);
+
+useEffect(() => {
+ if (chance){
+    localStorage.setItem('Messages', JSON.stringify(Messages))
+ }
+console.log('messge')
+}, [Messages]);
     return (
         <div id="chat">
         <div id="chat-box">
 
         <div id="chat-container">
         <div id="container-flex">
-            {Messages.map(message=>(
+            {Messages && Messages.map(message=>(
                 // {message.writer && (<h1> message.name</h1>)}
                 message.writer ?(
                 <div className='messages human'>
-                <h3>{message.name}</h3>
+                <p>{message.name}</p>
                 </div>)
                :(
                     <div className='messages robot'>
-                <h3>{message.name}</h3>
+                <p onClick={() =>{speaking(message.name)}} >{message.name}</p>
                 </div>
                 )
                 ))}
                 </div>
             </div>
-            {Writing && (<h3> Sarah is writing...</h3>) }
+            {Writing && (<h3 > Sarah is writing...</h3>) }
           <form onSubmit={handleSubmit}>
-                <label >            
-                <input type='text' onChange={(e)=> setMessage(e.target.value)} value={Message}></input>
-                <button>send message</button>
+                <label id='form' >            
+                <input id='input' type='text' onChange={(e)=> setMessage(e.target.value)} value={Message}></input>
+                <button id= 'submit'>send message</button>
                 </label>
             </form>
             </div>
