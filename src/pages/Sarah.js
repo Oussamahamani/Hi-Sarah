@@ -21,6 +21,10 @@ const Sarah = () => {
 const [Languageto, setLanguageto] = useState('');
 const [Last, setLast] = useState('');
 const [Writing, setWriting] = useState(false);
+const [timenow, settimenow] = useState();
+const [messagetime, setmessagetime] = useState();
+const [visit, setvisit] = useState(false);
+const [user, setuser] = useState();
 
 
 const {Translation, Language} = useDetector(Send)
@@ -32,22 +36,11 @@ const Addmessages =(message,status) =>{
     })
 }
 
-
-
 const clean = () =>{
     setMessage('')
     setSara('')
 
 }
-
-// const fetching = async () => {
-// if (Language === 'en'){
-//     /// fetch sara
-// }
-// else{ Detectlanguage(Message, Language)
-// }
-// }
-
 
 
 useEffect(() => {
@@ -106,6 +99,70 @@ if(LastTranslation){
 }
 }, [LastTranslation]);
 
+const [chance, setchance] = useState(false);
+
+
+///when user visits page
+useEffect(() => {
+    settimenow(Date.now())
+
+    // const username = localStorage.getItem('user')
+    // setuser(username)
+    const time = JSON.parse(localStorage.getItem('time'))
+    setvisit(true)
+    setmessagetime(time)
+    const localData = JSON.parse(localStorage.getItem('Messages'));
+    if (localData){
+        setMessages(localData)
+    }else console.log('error')
+    console.log(localData)
+}, []);
+
+const checkuser = ()=>{
+    if (!user){
+        setuser(Math.floor(Math.random() * 10000))
+        localStorage.setItem('user', JSON.stringify(user))
+        console.log('user new', user)
+    } else console.log( 'user old', user)
+
+}
+
+// useEffect(() => {
+// checkuser()
+// }, []);
+
+const howmuchtime = ()=>{
+    
+    const   timepassed =(timenow-messagetime)/1000
+    console.log( 'time passed', timepassed)
+    //  Addmessages(`it has been ${Math.floor(timepassed)} seconds since we last talked`, false)
+    if (timepassed> 3600 & timepassed< 86400){
+        Addmessages(`it has been ${Math.floor(timepassed/3600)} hours since we last talked, I am still available and happy to talk`, false)
+    }else if (timepassed > 86400){
+        Addmessages(`it has been ${Math.floor(timepassed/86400)} days since we last talked, how have you been ?`, false)
+        
+    }
+    
+}
+
+useEffect(() => {
+    howmuchtime()
+    setchance(true)
+    
+}, [visit]);
+
+
+useEffect(() => {
+    if (chance){
+        localStorage.setItem('Messages', JSON.stringify(Messages))
+        setmessagetime(Date.now())
+        localStorage.setItem('time', JSON.stringify(messagetime))
+        
+    }
+    console.log('messge')
+}, [Messages]);
+
+
 
 const handleSubmit =(e) =>{
     setWriting(true)
@@ -113,25 +170,11 @@ e.preventDefault()
 setSend(Message)
 Addmessages(Message,true)
 setMessage('')
-
 }
-const [chance, setchance] = useState(false);
-// useEffect(() => {
-//     setchance(true)
-//     const localData = JSON.parse(localStorage.getItem('Messages'));
-//     setMessages(localData)
-//     console.log(localData)
-//     // console.log(Messages)
-// }, []);
 
-// useEffect(() => {
-//  if (chance){
-//     localStorage.setItem('Messages', JSON.stringify(Messages))
-//  }
-// console.log('messge')
-// }, [Messages]);
-    return (
-        <div id="chat">
+
+return (
+    <div id="chat">
         <div id="chat-box">
 
         <div id="chat-container">
