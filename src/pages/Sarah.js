@@ -54,7 +54,7 @@ const fetchSara = async () => {
     const options = {
         method: 'GET',
         url: 'https://http-cors-proxy.p.rapidapi.com/http://api.brainshop.ai/get',
-        params: {bid: '163410', key: 'hWlvyscvNLHzjlmQ', uid: '[1]', msg: Translation},
+        params: {bid: '163410', key: 'hWlvyscvNLHzjlmQ', uid: user, msg: Translation},
         headers: {
           origin: 'example.com',
           'x-requested-with': 'example.com',
@@ -79,7 +79,6 @@ useEffect(() => {
     if(Language === 'en'){ Addmessages(Sara,false);console.log('yes');setWriting(false)
 }
     else{
-
         setLast(Sara)
         setLanguageto(Language)
         console.log('sending request to sara')
@@ -100,14 +99,17 @@ if(LastTranslation){
 }, [LastTranslation]);
 
 const [chance, setchance] = useState(false);
+const [checkusernumber, setcheckusernumber] = useState(false);
 
 
 ///when user visits page
 useEffect(() => {
     settimenow(Date.now())
 
-    // const username = localStorage.getItem('user')
-    // setuser(username)
+    let username = localStorage.getItem('user')
+     if (typeof(username )=== 'string') { console.log('user assigned');setuser(username);console.log('here',typeof(username))}
+     else if (typeof(username ) === 'object') {console.log('new user for first time');checkuser();console.log('username',username,typeof(username))
+    }
     const time = JSON.parse(localStorage.getItem('time'))
     setvisit(true)
     setmessagetime(time)
@@ -119,12 +121,10 @@ useEffect(() => {
 }, []);
 
 const checkuser = ()=>{
-    if (!user){
-        setuser(Math.floor(Math.random() * 10000))
-        localStorage.setItem('user', JSON.stringify(user))
-        console.log('user new', user)
-    } else console.log( 'user old', user)
-
+    const random = Math.floor(Math.random() * 10000)
+        setuser(random)
+        localStorage.setItem('user', JSON.stringify(random))
+        console.log('user new', random)
 }
 
 // useEffect(() => {
@@ -133,12 +133,12 @@ const checkuser = ()=>{
 
 const howmuchtime = ()=>{
     
-    const   timepassed =(timenow-messagetime)/1000
+    const timepassed =(timenow-messagetime)/1000
     console.log( 'time passed', timepassed)
     //  Addmessages(`it has been ${Math.floor(timepassed)} seconds since we last talked`, false)
     if (timepassed> 3600 & timepassed< 86400){
         Addmessages(`it has been ${Math.floor(timepassed/3600)} hours since we last talked, I am still available and happy to talk`, false)
-    }else if (timepassed > 86400){
+    }else if (timepassed > 86400 &&  timepassed< 432000000){
         Addmessages(`it has been ${Math.floor(timepassed/86400)} days since we last talked, how have you been ?`, false)
         
     }
