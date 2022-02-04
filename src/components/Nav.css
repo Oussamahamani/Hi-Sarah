@@ -1,15 +1,17 @@
-#nav-box{
+/* #nav-box{
     display: flex;
     justify-content: center;
 border: 1px solid black;
-}
+} */
 #nav-home{
-margin-right: auto;       
- color: green;
+/* margin-right: auto;        */
+ /* color: green;
+ margin-top: 0.5%;
+ margin-left: 0.5%; */
 }
 
-#nav-box h1:nth-child(1n){
+/* #nav-box h1:nth-child(1n){
 border: 2px solid green;
 border-radius: 15px;
 padding: 5px;
-}
+} */

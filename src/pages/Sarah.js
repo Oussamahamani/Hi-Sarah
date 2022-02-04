@@ -3,10 +3,12 @@ import { useState, useEffect } from 'react';
 import axios from 'axios'
 import { useTranslator} from '../hooks/useTranslator';
 import { useDetector} from '../hooks/useDetector';
-import Chat from './chat';
 import { useSpeechSynthesis } from "react-speech-kit";
 
 import "./Sarah.css"
+import SpeechRecognition, {
+    useSpeechRecognition
+  } from "react-speech-recognition";
 
 const Sarah = () => {
     const { speak,cancel } = useSpeechSynthesis();
@@ -18,13 +20,14 @@ const Sarah = () => {
     const [Message, setMessage] = useState('');
     const [Send, setSend] = useState('');
     const [Sara, setSara] = useState('');
-const [Languageto, setLanguageto] = useState('');
+    const [Languageto, setLanguageto] = useState('');
 const [Last, setLast] = useState('');
 const [Writing, setWriting] = useState(false);
 const [timenow, settimenow] = useState();
 const [messagetime, setmessagetime] = useState();
 const [visit, setvisit] = useState(false);
 const [user, setuser] = useState();
+const {voice,setvoice} =useState('hi')
 
 
 const {Translation, Language} = useDetector(Send)
@@ -35,6 +38,13 @@ const Addmessages =(message,status) =>{
         return [...preMessages, {name:message, writer:status }]
     })
 }
+
+const {
+    transcript,
+    listening,
+    resetTranscript,
+    browserSupportsSpeechRecognition
+  } = useSpeechRecognition();
 
 const clean = () =>{
     setMessage('')
@@ -49,12 +59,16 @@ if (Translation){fetchSara()
 // console.log(Translation,Translation)}
 }
 }, [Translation]);
+useEffect(() => {
+console.log(Message)
+}, [Message]);
+
 
 const fetchSara = async () => {
     const options = {
         method: 'GET',
         url: 'https://http-cors-proxy.p.rapidapi.com/http://api.brainshop.ai/get',
-        params: {bid: '163410', key: 'hWlvyscvNLHzjlmQ', uid: user, msg: Translation},
+        params: {bid: '163410', key: 'hWlvyscvNLHzjlmQ', uid: 110, msg: Translation},
         headers: {
           origin: 'example.com',
           'x-requested-with': 'example.com',
@@ -131,7 +145,7 @@ const howmuchtime = ()=>{
     
     const timepassed =(timenow-messagetime)/1000
     console.log( 'time passed', timepassed)
-    //  Addmessages(`it has been ${Math.floor(timepassed)} seconds since we last talked`, false)
+     Addmessages(`it has been ${Math.floor(timepassed)} seconds since we last talked`, false)
     if (timepassed> 3600 & timepassed< 86400){
         Addmessages(`hey,it has been ${Math.floor(timepassed/3600)} hours since we last talked, I am still available and happy to talk`, false)
     }else if (timepassed > 86400 &&  timepassed< 432000000){
@@ -162,13 +176,39 @@ useEffect(() => {
 
 const handleSubmit =(e) =>{
     setWriting(true)
-e.preventDefault()
-setSend(Message)
-Addmessages(Message,true)
-setMessage('')
+    e.preventDefault()
+    
+    if(Message){ Addmessages(Message,true);setSend(Message); console.log('writing')}
+    else{Addmessages(transcript,true) ;console.log('transcript');setSend(transcript)}
+    
+    resetTranscript()
+    setMessage('')
 }
 
+// speech recogintion
 
+
+    const handleListen = event => {
+      SpeechRecognition.startListening({ language: 'en-US' });
+   console.log('here is voice',transcript)
+        setMessage(transcript)
+      
+      if (listening) {
+          
+          SpeechRecognition.abortListening();
+        }
+        console.log('here is voice',transcript)
+        setMessage(transcript)
+      event.target.classList.toggle("record");
+    };
+
+    
+
+    if (!browserSupportsSpeechRecognition) {
+      console.log('broswer not supported for voice to speech use chrome')
+    }
+
+    
 return (
     <div id="chat">
         <div id="chat-box">
@@ -195,10 +235,13 @@ return (
                       <span ref={scrollSpan}></span>
                 </div>
             </div>
+
           
           <form onSubmit={handleSubmit}>
                 <label id='form' >            
-                <input id='input' type='text' onChange={(e)=> setMessage(e.target.value)} value={Message}></input>
+                <input id='input' type='text'  onChange={(e)=> {setMessage(e.target.value);resetTranscript()} }value={Message || transcript}></input>
+                <button id= 'submit'onClick={handleListen} type="button">record</button>
+                {/* <button onClick={()=> resetTranscript()}>Reset</button> */}
                 <button id= 'submit'>send message</button>
                 </label>
             </form>
