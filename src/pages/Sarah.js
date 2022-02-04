@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react'
 import { useState, useEffect } from 'react'; 
 import axios from 'axios'
 import { useTranslator} from '../hooks/useTranslator';
@@ -99,13 +99,11 @@ if(LastTranslation){
 }, [LastTranslation]);
 
 const [chance, setchance] = useState(false);
-const [checkusernumber, setcheckusernumber] = useState(false);
 
 
 ///when user visits page
 useEffect(() => {
     settimenow(Date.now())
-
     let username = localStorage.getItem('user')
      if (typeof(username )=== 'string') { console.log('user assigned');setuser(username);console.log('here',typeof(username))}
      else if (typeof(username ) === 'object') {console.log('new user for first time');checkuser();console.log('username',username,typeof(username))
@@ -127,9 +125,7 @@ const checkuser = ()=>{
         console.log('user new', random)
 }
 
-// useEffect(() => {
-// checkuser()
-// }, []);
+
 
 const howmuchtime = ()=>{
     
@@ -137,9 +133,9 @@ const howmuchtime = ()=>{
     console.log( 'time passed', timepassed)
     //  Addmessages(`it has been ${Math.floor(timepassed)} seconds since we last talked`, false)
     if (timepassed> 3600 & timepassed< 86400){
-        Addmessages(`it has been ${Math.floor(timepassed/3600)} hours since we last talked, I am still available and happy to talk`, false)
+        Addmessages(`hey,it has been ${Math.floor(timepassed/3600)} hours since we last talked, I am still available and happy to talk`, false)
     }else if (timepassed > 86400 &&  timepassed< 432000000){
-        Addmessages(`it has been ${Math.floor(timepassed/86400)} days since we last talked, how have you been ?`, false)
+        Addmessages(`hey, it has been ${Math.floor(timepassed/86400)} days since we last talked, how have you been ?`, false)
         
     }
     
@@ -151,7 +147,7 @@ useEffect(() => {
     
 }, [visit]);
 
-
+const scrollSpan= useRef();
 useEffect(() => {
     if (chance){
         localStorage.setItem('Messages', JSON.stringify(Messages))
@@ -160,7 +156,7 @@ useEffect(() => {
         
     }
     console.log('messge')
-}, [Messages]);
+    scrollSpan.current.scrollIntoView({ behavior: "smooth" });}, [Messages]);
 
 
 
@@ -191,9 +187,15 @@ return (
                 </div>
                 )
                 ))}
+                {Writing && (
+            <div className='messages robot'>
+                <p>...</p>
+                </div>
+            ) }
+                      <span ref={scrollSpan}></span>
                 </div>
             </div>
-            {Writing && (<h3 > Sarah is writing...</h3>) }
+          
           <form onSubmit={handleSubmit}>
                 <label id='form' >            
                 <input id='input' type='text' onChange={(e)=> setMessage(e.target.value)} value={Message}></input>

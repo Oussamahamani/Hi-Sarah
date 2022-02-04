@@ -1,25 +1,25 @@
 body{
     background-color: rgb(    252, 247, 248);
-
+height: 100%;
 }
 
 #chat{
     text-align: center;
-    max-width: 728px;
-    margin: 0 auto;
+    width: 100%;
+    height: 80%;
     background-color: rgb(255, 252, 242);
 }
  #chat-box{
-    padding: 10px;
-  height: 80vh;
+    /* padding: 10px;
   margin: 10vh 0 10vh;
   display: flex;
-  flex-direction: column;
-    
+  flex-direction: column; */
+  height: 78.2vh;
+
 }
 #chat-container{
     border: solid black 1px;
-    height: 90%;
+    height: 100%;
     overflow-y:scroll;
     background-color: rgb(64,61,57)
 
@@ -33,6 +33,7 @@ body{
 .messages{
     border-radius: 25px;
     font-size: 1.1rem;
+    margin-top: 1.5px;
 }
 p {
     max-width: 500px;
@@ -79,3 +80,17 @@ input {
     border: none;
     padding: 0 10px;
   }
+
+  
+  #container-flex::-webkit-scrollbar {
+    width: 0.25rem;
+  }
+  
+  #container-flex::-webkit-scrollbar-track {
+    background: #1e1e24;
+  }
+  
+  #container-flex::-webkit-scrollbar-thumb {
+    background: #6649b8;
+  }
+  
