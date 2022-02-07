@@ -3,7 +3,8 @@
     justify-content: center;
 border: 1px solid black;
 } */
-#nav-home{
+#nav-box{
+    /* background-color: black; */
 /* margin-right: auto;        */
  /* color: green;
  margin-top: 0.5%;
@@ -15,3 +16,15 @@ border: 2px solid green;
 border-radius: 15px;
 padding: 5px;
 } */
+
+.navbar{
+    background-color: black;
+  
+
+}
+
+.navbar-light {
+    color: white;
+}
+.navbar a:hover{
+color:orange}

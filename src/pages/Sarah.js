@@ -68,7 +68,7 @@ const fetchSara = async () => {
     const options = {
         method: 'GET',
         url: 'https://http-cors-proxy.p.rapidapi.com/http://api.brainshop.ai/get',
-        params: {bid: '163410', key: 'hWlvyscvNLHzjlmQ', uid: 110, msg: Translation},
+        params: {bid: '163410', key: 'hWlvyscvNLHzjlmQ', uid: user, msg: Translation},
         headers: {
           origin: 'example.com',
           'x-requested-with': 'example.com',
@@ -144,8 +144,8 @@ const checkuser = ()=>{
 const howmuchtime = ()=>{
     
     const timepassed =(timenow-messagetime)/1000
-    console.log( 'time passed', timepassed)
-     Addmessages(`it has been ${Math.floor(timepassed)} seconds since we last talked`, false)
+    // console.log( 'time passed', timepassed)
+    //  Addmessages(`it has been ${Math.floor(timepassed)} seconds since we last talked`, false)
     if (timepassed> 3600 & timepassed< 86400){
         Addmessages(`hey,it has been ${Math.floor(timepassed/3600)} hours since we last talked, I am still available and happy to talk`, false)
     }else if (timepassed > 86400 &&  timepassed< 432000000){

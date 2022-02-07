@@ -1,0 +1,68 @@
+#img-bnr{
+    height: 92vh;
+    width: 100%;
+}
+#sarahpic{
+    width: 45vh;
+    height: 40vh;
+    margin-bottom: -50px;
+}
+.saramessage{
+    margin-left: 30vh;
+}
+
+#input-home {
+    line-height: 1.5;
+    width: 60%;
+    height: 10vh;
+    font-size: 1.5rem;
+    background: rgb(255, 255, 255);
+    color: rgb(10, 9, 9);
+    /* outline: none;
+    border: none; */
+    padding: 0 10px;
+    margin-left: auto; 
+    margin-right: 0;
+    margin-bottom: 20vh;
+    /* align-self: flex-start; */
+  }
+  #home-form{
+      margin-top: 15vh;
+display: flex;
+justify-content: flex-end;
+
+  }
+
+
+  .human-home{
+    background-color: rgb(11, 182, 251);;
+    margin-right: 10px;
+    align-self:center;
+    margin-top: 2vh
+}
+.robot-home{
+    background-color: rgb(244,159,10);
+    margin-left: 10px;
+    align-self:center;
+    margin-top: 2vh
+
+
+}
+#pic-container{
+    display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.pics{
+    width:70% ;
+    height:600px ;
+    margin-bottom: 10px;
+}
+#home-color{
+    background-color: rgb(240, 240, 240);
+}
+.picse{
+    width:100% ;
+    height:600px ;
+}
