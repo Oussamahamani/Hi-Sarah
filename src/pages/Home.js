@@ -7,16 +7,16 @@ import slide2 from "./../slide3.png";
 import slide3 from "./../Component 2.png";
 
 import "./Home.css";
-import Chat from "./../components/Chat";
+import Chat from "../components/Chat";
 import Footer from "../components/Footer";
 export default function Home() {
   return (
     <div>
-      <img id="img-bnr" src={banner} alt="fdf" />
+      <img id="img-bnr" src={banner} alt="" />
       <div id="pic-container">
 
-      <img className="pics"src={slide2} alt="fdf" />
-      <img className="pics"src={slide1} alt="fdf" />
+      <img className="pics"src={slide2} alt="" />
+      <img className="pics"src={slide1} alt="" />
 
       </div>
       <div id='home-color'>

@@ -80,4 +80,26 @@ height: 100%;
     border: none;
     padding: 0 10px;
   }
+  button{
+      background-color: rgb(251,126,11);
+      /* border: rgb(251,126,11) solid; */
+  }
+  #form > img{
+      height: 7vh;
+      width: 7vh;
+      margin-left: 5px;
+      filter: grayscale();      
+      margin-bottom: 1rem;
 
+      /* opacity:0.5;
+transition: 1s ease; */
+            /* cursor:pointer; */
+  }
+  #form > img:hover {
+    cursor: pointer;
+    filter: none;
+
+    /* opacity:1;
+transition: 1s ease; */
+ 
+}

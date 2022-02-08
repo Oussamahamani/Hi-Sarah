@@ -10,6 +10,13 @@ import SpeechRecognition, {
     useSpeechRecognition
   } from "react-speech-recognition";
 
+  import send1 from "./../send.png";
+import send2 from "./../send2.png";
+import mic from "./../mic.png";
+
+import  UserContext from './../../src/context/DataContext'
+import { useContext } from 'react';
+
 const Sarah = () => {
     const { speak,cancel } = useSpeechSynthesis();
     const speaking = (item) =>{
@@ -27,18 +34,35 @@ const [timenow, settimenow] = useState();
 const [messagetime, setmessagetime] = useState();
 const [visit, setvisit] = useState(false);
 const [user, setuser] = useState();
-const {voice,setvoice} =useState('hi')
 
 
+const { Delete, setDelete } = useContext(UserContext);
+console.log('success',Delete)
+///costum hooks used to fetch api for the translator
 const {Translation, Language} = useDetector(Send)
 const {Translation: LastTranslation} = useTranslator(Last,Languageto)
+
 
 const Addmessages =(message,status) =>{
     setMessages((preMessages)=>{
         return [...preMessages, {name:message, writer:status }]
     })
 }
+//the function that resets the messages
+useEffect(() => {
 
+if (Delete){
+
+    setMessages([])
+    localStorage.setItem('Messages', JSON.stringify(Messages))
+    setDelete(false)
+}
+    
+   
+    }, [Delete]);
+    
+
+///speech to text hook
 const {
     transcript,
     listening,
@@ -53,15 +77,16 @@ const clean = () =>{
 }
 
 
-useEffect(() => {
+const handleSubmit =(e) =>{
+    setWriting(true)
+    e.preventDefault()
     
-if (Translation){fetchSara()
-// console.log(Translation,Translation)}
+    if(Message){ Addmessages(Message,true);setSend(Message); console.log('writing')}
+    else{Addmessages(transcript,true) ;console.log('transcript');setSend(transcript)}
+    
+    resetTranscript()
+    setMessage('')
 }
-}, [Translation]);
-useEffect(() => {
-console.log(Message)
-}, [Message]);
 
 
 const fetchSara = async () => {
@@ -87,15 +112,30 @@ const fetchSara = async () => {
       });
 }
 
+useEffect(() => {
+    
+if (Translation){fetchSara()
+// console.log(Translation,Translation)}
+}
+}, [Translation]);
+
+
+
+// useEffect(() => {
+// console.log(Message)
+// }, [Message]);
+
+
+
 
 
 useEffect(() => {
-    if(Language === 'en'){ Addmessages(Sara,false);console.log('yes');setWriting(false)
+    if(Language === 'en'){ Addmessages(Sara,false);setWriting(false);
 }
     else{
         setLast(Sara)
         setLanguageto(Language)
-        console.log('sending request to sara')
+        // console.log('sending request to sara')
     }
 
 }, [Sara]);
@@ -116,15 +156,20 @@ const [chance, setchance] = useState(false);
 
 
 ///when user visits page
+
 useEffect(() => {
     settimenow(Date.now())
+
     let username = localStorage.getItem('user')
+
      if (typeof(username )=== 'string') { console.log('user assigned');setuser(username);console.log('here',typeof(username))}
-     else if (typeof(username ) === 'object') {console.log('new user for first time');checkuser();console.log('username',username,typeof(username))
+     else if (typeof(username ) === 'object') {console.log('new user for first time');addUser();console.log('username',username,typeof(username))
     }
     const time = JSON.parse(localStorage.getItem('time'))
+
     setvisit(true)
     setmessagetime(time)
+
     const localData = JSON.parse(localStorage.getItem('Messages'));
     if (localData){
         setMessages(localData)
@@ -132,7 +177,8 @@ useEffect(() => {
     console.log(localData)
 }, []);
 
-const checkuser = ()=>{
+
+const addUser = ()=>{
     const random = Math.floor(Math.random() * 10000)
         setuser(random)
         localStorage.setItem('user', JSON.stringify(random))
@@ -161,6 +207,7 @@ useEffect(() => {
     
 }, [visit]);
 
+///auto scrolldown 
 const scrollSpan= useRef();
 useEffect(() => {
     if (chance){
@@ -174,16 +221,6 @@ useEffect(() => {
 
 
 
-const handleSubmit =(e) =>{
-    setWriting(true)
-    e.preventDefault()
-    
-    if(Message){ Addmessages(Message,true);setSend(Message); console.log('writing')}
-    else{Addmessages(transcript,true) ;console.log('transcript');setSend(transcript)}
-    
-    resetTranscript()
-    setMessage('')
-}
 
 // speech recogintion
 
@@ -206,6 +243,7 @@ const handleSubmit =(e) =>{
 
     if (!browserSupportsSpeechRecognition) {
       console.log('broswer not supported for voice to speech use chrome')
+    //   Addmessages('your browser is not supported for speech to text', false)
     }
 
     
@@ -240,12 +278,19 @@ return (
           <form onSubmit={handleSubmit}>
                 <label id='form' >            
                 <input id='input' type='text'  onChange={(e)=> {setMessage(e.target.value);resetTranscript()} }value={Message || transcript}></input>
-                <button id= 'submit'onClick={handleListen} type="button">record</button>
+                {/* <button id= 'submit'onClick={handleListen} type="button">record</button> */}
                 {/* <button onClick={()=> resetTranscript()}>Reset</button> */}
-                <button id= 'submit'>send message</button>
+                {/* <button id= 'submit'>send message</button> */}
+                {/* <button > */}
+<img id= 'submit'onClick={handleListen} src={mic} alt="" />
+<img id="submit" onClick={handleSubmit} src={send1} alt="" />
+
+{/* </button> */}
+
                 </label>
             </form>
             </div>
+            {/* <img className="button-pic"src={send1} alt="" /> */}
             </div>
     );
 }
