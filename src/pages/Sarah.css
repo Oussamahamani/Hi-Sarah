@@ -103,3 +103,18 @@ transition: 1s ease; */
 transition: 1s ease; */
  
 }
+#message-container > img{
+    height: 5vh;
+    width: 5vh;
+     margin-left: 2vh;
+    /* padding-top: 2vh; */ 
+}
+
+#message-container{
+display: flex;
+align-items: center;
+}
+#message-container > img:hover{
+    cursor: pointer;
+
+}

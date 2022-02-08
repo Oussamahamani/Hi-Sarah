@@ -4,18 +4,25 @@ import banner from "./../banner.png";
 import sarahpic from "./../Sarah.png";
 import slide1 from "./../slide4.png";
 import slide2 from "./../slide3.png";
+import slide5 from "./../Slide5.png";
 import slide3 from "./../Component 2.png";
+import { useNavigate } from 'react-router-dom'
 
 import "./Home.css";
 import Chat from "../components/Chat";
 import Footer from "../components/Footer";
 export default function Home() {
+
+  const Navigate = useNavigate();
+  const handlesubmit =()=>{
+    Navigate("/Sarah");
+  }
   return (
     <div>
       <img id="img-bnr" src={banner} alt="" />
       <div id="pic-container">
 
-      <img className="pics"src={slide2} alt="" />
+      <img className="pics"src={slide5} alt="" />
       <img className="pics"src={slide1} alt="" />
 
       </div>
@@ -56,7 +63,7 @@ export default function Home() {
             <p>hello, my name is Sarah, nice to meet you, what is your name?</p>
           </div>
         </div>
-        <form id="home-form">
+        <form onSubmit={handlesubmit} id="home-form">
           <input
             type="text"
             id="input-home"

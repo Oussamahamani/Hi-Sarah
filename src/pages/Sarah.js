@@ -13,6 +13,7 @@ import SpeechRecognition, {
   import send1 from "./../send.png";
 import send2 from "./../send2.png";
 import mic from "./../mic.png";
+import speaker from "./../speaker.png";
 
 import  UserContext from './../../src/context/DataContext'
 import { useContext } from 'react';
@@ -37,7 +38,8 @@ const [user, setuser] = useState();
 
 
 const { Delete, setDelete } = useContext(UserContext);
-console.log('success',Delete)
+
+
 ///costum hooks used to fetch api for the translator
 const {Translation, Language} = useDetector(Send)
 const {Translation: LastTranslation} = useTranslator(Last,Languageto)
@@ -78,11 +80,11 @@ const clean = () =>{
 
 
 const handleSubmit =(e) =>{
-    setWriting(true)
+
     e.preventDefault()
     
-    if(Message){ Addmessages(Message,true);setSend(Message); console.log('writing')}
-    else{Addmessages(transcript,true) ;console.log('transcript');setSend(transcript)}
+    if(Message ){ Addmessages(Message,true);setSend(Message); console.log('writing');setWriting(true)}
+    else{ if (transcript.length >1){Addmessages(transcript,true) ;console.log('transcript');setSend(transcript);setWriting(true)}}
     
     resetTranscript()
     setMessage('')
@@ -260,9 +262,12 @@ return (
                 <p>{message.name}</p>
                 </div>)
                :(
+                   <div id="message-container">
                     <div className='messages robot'>
                 <p onClick={() =>{speaking(message.name)}} >{message.name}</p>
                 </div>
+                {/* <img onClick={() =>{speaking(message.name)}} src={speaker} alt="" /> */}
+                   </div >
                 )
                 ))}
                 {Writing && (

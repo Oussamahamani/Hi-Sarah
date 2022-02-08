@@ -11,7 +11,7 @@ const Footer = () => {
       <a className="btn btn-outline-light btn-floating m-1" href="#!" role="button"
         ><i className="fab fa-linkedin-in"></i  >LinkedIn</a>
 
-      <a className="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+      <a className="btn btn-outline-light btn-floating m-1" href="https://github.com/Oussamahamani/Hi-Sarah" role="button"
         ><i className="fab fa-github"></i>Github</a>
     </section>
   </div>
