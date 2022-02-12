@@ -22,7 +22,7 @@
 
 
 ## Key Features
----
+
 * Smart 
   - Sarah can talk with you in any topic, and can converse like a human.
 * Lasting Memory
@@ -41,7 +41,7 @@
 
 
 ## How does HiSarah work
----
+
 * Sarah is created by using <a href="https://brainshop.ai/">brainshop</a> api. When a user sends a message, the website fetches the message to brainshop api and it then shows the response back to the user.
 * Dynamic language change
   - the translation is not a feature from brainshop, the translation feature is done by using a second api for translation
@@ -52,7 +52,7 @@
 
  
 ## Credits
----
+g
 This website used the following packages and services:
 
 - [brainshop](https://brainshop.ai/)
