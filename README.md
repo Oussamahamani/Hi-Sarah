@@ -6,13 +6,18 @@
   <br>
 </h1>
 <h4 align="center">Chat with the smartest chatbot</h4>
-<h5 align="center">try it <a href=" https://hisarah.netlify.app/"> here </a>   </h4>
+
+<div align="center">
+
+Try it [Here](https://brainshop.ai/)   
+
+</div>
 
 
 
 <p align="center">
   <a href="#key-features">Key Features</a> •
-  <a href="#how-to-use">How does HiSarah work</a> •
+  <a href="#how-does-hisarah-work">How does HiSarah work</a> •
   <a href="#credits">Credits</a> 
    <br>
 <img width="100%" src="https://github.com/Oussamahamani/Hi-Sarah/blob/main/src/demo2.gif" >
@@ -25,7 +30,7 @@
 
 * Smart 
   - Sarah can talk with you in any topic, and can converse like a human.
-* Lasting Memory
+* Lasting Memorya
   - Sarah remembers everything you tell her like your name, interests, and the stuff you tell her.
   - Sarah also remember the last time you talked, so when you visit the page again she tells it has been this long since we talked how have you been.
 * Dynamic language change
