@@ -15,7 +15,7 @@
   <a href="#how-to-use">How does HiSarah work</a> •
   <a href="#credits">Credits</a> 
    <br>
-<img width="100%" src="https://s10.gifyu.com/images/React-App-Mozilla-Firefox-2022-02-12-10-57-03.gif" >
+<img width="100%" src="https://github.com/Oussamahamani/Hi-Sarah/blob/main/src/demo2.gif" >
 </p>
 
 
