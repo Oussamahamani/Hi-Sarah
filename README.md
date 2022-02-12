@@ -1,70 +1,71 @@
-# Getting Started with Create React App
+<h1 align="center">
+  <br>
+ <img src="https://i.imgur.com/CjUpcdH.png" alt="sarah-icon" width="500">
+  <br>
+  HiSarah!
+  <br>
+</h1>
+<h4 align="center">Chat with the smartest chatbot</h4>
+<h5 align="center">try it <a href=" https://hisarah.netlify.app/"> here </a>   </h4>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+<p align="center">
+  <a href="#key-features">Key Features</a> •
+  <a href="#how-to-use">How does HiSarah work</a> •
+  <a href="#credits">Credits</a> 
+   <br>
+<img width="100%" src="https://s10.gifyu.com/images/React-App-Mozilla-Firefox-2022-02-12-10-57-03.gif" >
+</p>
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## Key Features
+---
+* Smart 
+  - Sarah can talk with you in any topic, and can converse like a human.
+* Lasting Memory
+  - Sarah remembers everything you tell her like your name, interests, and the stuff you tell her.
+  - Sarah also remember the last time you talked, so when you visit the page again she tells it has been this long since we talked how have you been.
+* Dynamic language change
+  - Unlike other apps where you have to change the language in settings, just talk in any language and Sarah will answer in the same language.
+* Multi language support
+  - Sarah can talk in a record 104 languages more than siri and alexa combined.
+* Sarah voice
+  - Sarah can speak like a human by clicking at the messages 
+* Voice to chat
+  - Sarah can also listen to you just speak and sarah will understand you .
+* Mobile friendly
+  - you can talk with sarah both on your laptop and phone. 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## How does HiSarah work
+---
+* Sarah is created by using <a href="https://brainshop.ai/">brainshop</a> api. When a user sends a message, the website fetches the message to brainshop api and it then shows the response back to the user.
+* Dynamic language change
+  - the translation is not a feature from brainshop, the translation feature is done by using a second api for translation
+  - when you a user writes a message, the message get fetched to the translator api, the api detects the languages and then translates the message to english, then the english translation get sent to brainshop. then the website checks what was the original language of the message, if it was english it shows Sarah response direclty to the use, if it was another language, the translator api get called again but this time, it translate Sarah response to the original language of the message, then the website after receiving response shows it to the user.
+ * Sarah voice is done by using npm package <a href=" https://www.npmjs.com/package/react-speech-kit"> react speech kit </a> 
+ * Voice to chat is done by using npm package  
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+ 
+## Credits
+---
+This website used the following packages and services:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- [brainshop](https://brainshop.ai/)
+- [react-speech-kit](https://www.npmjs.com/package/react-speech-kit)
+- [react-speech-recognition](https://www.npmjs.com/package/react-speech-recognition)
+- [Sarah icon](https://dribbble.com/shots/7212262-Chatbot-Avatar)
+- [Microsoft Translator Text](https://rapidapi.com/microsoft-azure-org-microsoft-cognitive-services/api/microsoft-translator-text/)
+- [HTTP Cors Proxy](https://rapidapi.com/pgarciamaurino/api/http-cors-proxy/)  has been used to bypass Cors error
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

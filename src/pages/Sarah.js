@@ -41,7 +41,6 @@ const { Delete, setDelete } = useContext(UserContext);
 
 
 ///costum hooks used to fetch api for the translator
-const {Translation, Language} = useDetector(Send)
 const {Translation: LastTranslation} = useTranslator(Last,Languageto)
 
 
@@ -89,6 +88,17 @@ const handleSubmit =(e) =>{
     resetTranscript()
     setMessage('')
 }
+const {Translation, Language} = useDetector(Send)
+
+
+
+useEffect(() => {
+    
+    if (Translation){
+        fetchSara()
+    }
+    }, [Translation]);
+
 
 
 const fetchSara = async () => {
@@ -114,12 +124,6 @@ const fetchSara = async () => {
       });
 }
 
-useEffect(() => {
-    
-if (Translation){fetchSara()
-// console.log(Translation,Translation)}
-}
-}, [Translation]);
 
 
 
@@ -282,7 +286,7 @@ return (
           
           <form onSubmit={handleSubmit}>
                 <label id='form' >            
-                <input id='input' type='text'  onChange={(e)=> {setMessage(e.target.value);resetTranscript()} }value={Message || transcript}></input>
+                <input id='input' type='text' autoComplete="off"   onChange={(e)=> {setMessage(e.target.value);resetTranscript()} }value={Message || transcript}></input>
                 {/* <button id= 'submit'onClick={handleListen} type="button">record</button> */}
                 {/* <button onClick={()=> resetTranscript()}>Reset</button> */}
                 {/* <button id= 'submit'>send message</button> */}
