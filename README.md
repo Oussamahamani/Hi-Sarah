@@ -52,7 +52,7 @@
 
  
 ## Credits
-g
+
 This website used the following packages and services:
 
 - [brainshop](https://brainshop.ai/)
