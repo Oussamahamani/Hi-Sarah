@@ -9,7 +9,7 @@
 
 <div align="center">
 
-Try it [Here](https://brainshop.ai/)   
+Try it [Here](https://hisarah.netlify.app/)   
 
 </div>
 
