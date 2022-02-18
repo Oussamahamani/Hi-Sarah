@@ -30,17 +30,18 @@ Try it [Here](https://hisarah.netlify.app/)
 
 * Smart 
   - Sarah can talk with you in any topic, and can converse like a human.
-* Lasting Memorya
-  - Sarah remembers everything you tell her like your name, interests, and the stuff you tell her.
-  - Sarah also remember the last time you talked, so when you visit the page again she tells it has been this long since we talked how have you been.
+* Lasting Memory
+  - Sarah remembers everything you tell her like your name, interests, and other stuff.
+  - Sarah also remember the last time you talked, so when you visit the page again she tells it has been this long since you last talked.
 * Dynamic language change
-  - Unlike other apps where you have to change the language in settings, just talk in any language and Sarah will answer in the same language.
+  - Unlike other apps where you have to change the language in settings, just talk in any language and Sarah will undertand you and answer in the same language.
 * Multi language support
   - Sarah can talk in a record 104 languages more than siri and alexa combined.
 * Sarah voice
   - Sarah can speak like a human by clicking at the messages 
 * Voice to chat
-  - Sarah can also listen to you just speak and sarah will understand you .
+  - Sarah can also listen to you, click at the microphone, speak and sarah will understand you.
+  - this feature is supported only on chrome
 * Mobile friendly
   - you can talk with sarah both on your laptop and phone. 
 
@@ -50,9 +51,9 @@ Try it [Here](https://hisarah.netlify.app/)
 * Sarah is created by using <a href="https://brainshop.ai/">brainshop</a> api. When a user sends a message, the website fetches the message to brainshop api and it then shows the response back to the user.
 * Dynamic language change
   - the translation is not a feature from brainshop, the translation feature is done by using a second api for translation
-  - when you a user writes a message, the message get fetched to the translator api, the api detects the languages and then translates the message to english, then the english translation get sent to brainshop. then the website checks what was the original language of the message, if it was english it shows Sarah response direclty to the use, if it was another language, the translator api get called again but this time, it translate Sarah response to the original language of the message, then the website after receiving response shows it to the user.
+  - when a user writes a message, the message get fetched to the translator api, the api detects the languages and then translates the message to english, then the english translation get sent to brainshop api. after that the website checks what was the original language of the message, if it was english, it renders Sarah response in the screen and shows to the user, if it was in another language, the translator api get called again but this time, it translate Sarah response to the original language of the user message, then the website after receiving response, shows it it to the user.
  * Sarah voice is done by using npm package <a href=" https://www.npmjs.com/package/react-speech-kit"> react speech kit </a> 
- * Voice to chat is done by using npm package  
+ * Voice to chat is done by using npm package [react-speech-recognition](https://www.npmjs.com/package/react-speech-recognition) 
 
 
  

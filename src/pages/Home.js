@@ -1,11 +1,9 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import banner from "./../banner.png";
-import sarahpic from "./../Sarah.png";
-import slide1 from "./../slide4.png";
-import slide2 from "./../slide3.png";
-import slide5 from "./../Slide5.png";
-import slide3 from "./../Component 2.png";
+import banner from "./../pictures/banner.png";
+import sarahpic from "./../pictures/Sarah.png";
+import slide1 from "./../pictures/slide4.png";
+import slide2 from "./../pictures/slide3.png";
 import { useNavigate } from 'react-router-dom'
 
 import "./Home.css";
@@ -22,7 +20,7 @@ export default function Home() {
       <img id="img-bnr" src={banner} alt="" />
       <div id="pic-container">
 
-      <img className="pics"src={slide5} alt="" />
+      <img className="pics"src={slide2} alt="" />
       <img className="pics"src={slide1} alt="" />
 
       </div>

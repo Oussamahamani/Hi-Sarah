@@ -8,7 +8,7 @@ const Footer = () => {
     <section className="mb-4">
   
 
-      <a className="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+      <a className="btn btn-outline-light btn-floating m-1" href="https://www.linkedin.com/in/oussama-hamani/" role="button"
         ><i className="fab fa-linkedin-in"></i  >LinkedIn</a>
 
       <a className="btn btn-outline-light btn-floating m-1" href="https://github.com/Oussamahamani/Hi-Sarah" role="button"
@@ -17,7 +17,7 @@ const Footer = () => {
   </div>
 
   <div className="text-center p-3" style={{backgroundColor: 'black'}}>
-    <a className="text-white" href="#!">By Oussama Hamani</a>
+    <a className="text-white" href="www.linkedin.com/in/oussama-hamani">By Oussama Hamani</a>
   </div>
   
 </footer>

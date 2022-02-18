@@ -10,10 +10,9 @@ import SpeechRecognition, {
     useSpeechRecognition
   } from "react-speech-recognition";
 
-  import send1 from "./../send.png";
-import send2 from "./../send2.png";
-import mic from "./../mic.png";
-import speaker from "./../speaker.png";
+  import send1 from "./../pictures/send.png";
+import mic from "./../pictures/mic.png";
+import speaker from "./../pictures/speaker.png";
 
 import  UserContext from './../../src/context/DataContext'
 import { useContext } from 'react';
@@ -169,7 +168,8 @@ useEffect(() => {
     let username = localStorage.getItem('user')
 
      if (typeof(username )=== 'string') { console.log('user assigned');setuser(username);console.log('here',typeof(username))}
-     else if (typeof(username ) === 'object') {console.log('new user for first time');addUser();console.log('username',username,typeof(username))
+     else if (typeof(username ) === 'object') {console.log('new user for first time');addUser();console.log('username',username,typeof(username));
+    Addmessages('I am so happy to make a new friend like you, try asking me anything :)',false)
     }
     const time = JSON.parse(localStorage.getItem('time'))
 
@@ -270,7 +270,7 @@ return (
                     <div className='messages robot'>
                 <p onClick={() =>{speaking(message.name)}} >{message.name}</p>
                 </div>
-                {/* <img onClick={() =>{speaking(message.name)}} src={speaker} alt="" /> */}
+                <img onClick={() =>{speaking(message.name)}} src={speaker} alt="" />
                    </div >
                 )
                 ))}
