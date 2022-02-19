@@ -20,7 +20,7 @@ Try it [Here](https://hisarah.netlify.app/)
   <a href="#how-does-hisarah-work">How does HiSarah work</a> •
   <a href="#credits">Credits</a> 
    <br>
-<img width="100%" src="https://github.com/Oussamahamani/Hi-Sarah/blob/main/src/demo2.gif" >
+<img width="100%" src="https://github.com/Oussamahamani/Hi-Sarah/blob/main/src/pictures/demo2.gif" >
 </p>
 
 
