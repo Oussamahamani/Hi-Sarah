@@ -18,6 +18,7 @@ Try it [Here](https://hisarah.netlify.app/)
 <p align="center">
   <a href="#key-features">Key Features</a> •
   <a href="#how-does-hisarah-work">How does HiSarah work</a> •
+    <a href="#Unresolved-issues-and-bugs">Unresolved issues and bugs</a> •
   <a href="#credits">Credits</a> 
    <br>
 <img width="100%" src="https://github.com/Oussamahamani/Hi-Sarah/blob/main/src/pictures/demo2.gif" >
@@ -57,16 +58,24 @@ Try it [Here](https://hisarah.netlify.app/)
 
 
  
+## Unresolved issues and bugs
+* Sometimes Sarah take too long to answer or does not answer at all.
+* Speech to text feature only works only on chrome.
+* If you click at the message you will hear a male voice instead of female. This happens only if you use chrome.
+* Sarah forget the stuff you tell her after a day.
+* Sarah Sometimes mistakes the languages that the user is using.
+
+
 ## Credits
 
-This website used the following packages and services:
+HI Sarah used the following packages and services:
 
-- [brainshop](https://brainshop.ai/)
+- [brainshop](https://brainshop.ai/) was used to create Sarah.
 - [react-speech-kit](https://www.npmjs.com/package/react-speech-kit)
 - [react-speech-recognition](https://www.npmjs.com/package/react-speech-recognition)
 - [Sarah icon](https://dribbble.com/shots/7212262-Chatbot-Avatar)
 - [Microsoft Translator Text](https://rapidapi.com/microsoft-azure-org-microsoft-cognitive-services/api/microsoft-translator-text/)
-- [HTTP Cors Proxy](https://rapidapi.com/pgarciamaurino/api/http-cors-proxy/)  has been used to bypass Cors error
+- [HTTP Cors Proxy](https://rapidapi.com/pgarciamaurino/api/http-cors-proxy/) has been used to bypass Cors error
 
 
 
